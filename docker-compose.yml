@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    image: 'postgres:9.5'
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: skeleton-dev
+    ports:
+      - 5432:5432
+  backend:
+    build: 
+      context: .
+    tty: true
+    stdin_open: true
+    restart: always
+    depends_on:
+      - 'db'
+    volumes:
+      - .:/code
+    ports:
+      - 3001:3001
+    environment:
+      DATABASE_URL: "postgres://postgres:password@db"
+      POSTGRES_PASSWORD: password
+    command: backend
+  frontend:
+    build: 
+      context: .
+    tty: true
+    stdin_open: true
+    restart: always
+    depends_on:
+      - 'db'
+    volumes:
+      - .:/code
+    ports:
+      - 3000:3000
+    command: frontend
