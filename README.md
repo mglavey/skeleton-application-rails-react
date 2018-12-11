@@ -1,14 +1,14 @@
 # Skeleton Application For TDE
 
 - [Skeleton Application For TDE](#skeleton-application-for-tde)
-    - [Base Application Structure](#base-application-structure)
-    - [Steps To Use This Skeleton](#steps-to-use-this-skeleton)
-    - [Notes & Idiosyncracies](#notes--idiosyncracies)
-    - [Running The App Locally](#running-the-app-locally)
-    - [Installing New Ruby Gems](#installing-new-ruby-gems)
-    - [Installing New JavaScript Packages](#installing-new-javascript-packages)
-    - [TODO](#todo)
-    - [Available Production Environment Variables](#available-production-environment-variables)
+  - [Base Application Structure](#base-application-structure)
+  - [Steps To Use This Skeleton](#steps-to-use-this-skeleton)
+  - [Notes & Idiosyncracies](#notes--idiosyncracies)
+  - [Running The App Locally](#running-the-app-locally)
+  - [Installing New Ruby Gems](#installing-new-ruby-gems)
+  - [Installing New JavaScript Packages](#installing-new-javascript-packages)
+  - [TODO](#todo)
+  - [Available Production Environment Variables](#available-production-environment-variables)
 
 ## Base Application Structure
 
@@ -35,8 +35,6 @@ end
 
 rather than from `ActionController::Base` or `ActionController::API`
 
-2. Any packages need to be installed inside the docker container. You can get there by running `docker exec -ti 
-
 ## Running The App Locally
 
 Technologies needed:
@@ -62,7 +60,8 @@ You have two options:
 2. Run `rake add[package_name]` (This is another custom `rake` command, defined in `lib/tasks/add.rake`)
 
 ## TODO
-- Get Docker up and running
+- Fix `docker-compose` issues to correctly start the application (currently fails to start the backend)
+- Clean up `docker-compose`; it is building a duplicate images for the BE & FE)
 - Get user authentication and authorization up and running (super simple stuff :roll_eyes:)
 - Write sample backend controller/routes and frontend component for reference purposes (maybe users? Gets into tricky territory, since it needs to be pretty universal)
 - Explore `.fetch()` vs. other alternatives for retrieving API endpoints
@@ -72,12 +71,12 @@ You have two options:
 
 ## Available Production Environment Variables
 
-DATABASE_URL
-RAILS_MAX_THREADS
-SKELETON_DATABASE_USERNAME
-SKELETON_DATABASE_PASSWORD
-RAILS_SERVE_STATIC_FILES
-RAILS_LOG_TO_STDOUT
-SKELETON_HOST_NAME
+- DATABASE_URL
+- RAILS_MAX_THREADS
+- SKELETON_DATABASE_USERNAME
+- SKELETON_DATABASE_PASSWORD
+- RAILS_SERVE_STATIC_FILES
+- RAILS_LOG_TO_STDOUT
+- SKELETON_HOST_NAME
 
 [1]: https://blog.heroku.com/a-rock-solid-modern-web-stack
